@@ -7,11 +7,56 @@ const Form = () => {
   const [agency, setAgency] = useState(false);
   const [individual, setIndividual] = useState(false);
   const [UserErr, setUserError] = useState(false);
-  const [showError, setError] = useState(false);
+  const [showError, setError] = useState({});
+
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  const validateForm = () => {
+    let newErrors = {};
+
+    // Validate username
+    if (!formData.username.trim()) {
+      newErrors.username = 'Please fill the valid username';
+    }
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim() || !emailRegex.test(formData.email)) {
+      newErrors.email = 'Valid email is required';
+    }
+
+    // Validate password
+    if (formData.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters long';
+    }
+
+    setError(newErrors);
+
+    // Return true if there are no errors
+    return Object.keys(newErrors).length === 0;
+  };
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // submit form data here
+    if (validateForm()) {
+      // Process form data (submit to server, etc.)
+      console.log('Form submitted:', formData);
+    } else {
+      console.log('Form has errors. Please correct them.');
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   return (
@@ -21,19 +66,20 @@ const Form = () => {
       <input
         type="text"
         id="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)} required
+        value={FormData.username}
+        onChange={handleChange}
+        // (e) => setUsername(e.target.value)
       />
-        {UserErr ? <span>Please fill valid Username</span> : ""}
+       {showError.username && <span style={{color:"red"}}>{showError.username}</span>}
 
       <label htmlFor="password">Choose a password</label>
       <input
         type="password"
         id="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)} required
+        value={FormData.password}
+        onChange={handleChange}
       />
-       {UserErr ? <span>Please fill valid Username</span> : ""}
+       {showError.password && <span style={{color:"red"}}>{showError.password}</span>}
 
       <label htmlFor="dob">Date of birth (Optional)</label>
       <div className="dob-group">
