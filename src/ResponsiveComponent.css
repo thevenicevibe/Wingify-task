@@ -172,7 +172,7 @@ body {
   font-size: 24px;
   font-family: Roboto;
   line-height: 28.13px;
-  margin-left: 10px;
+  margin-left: 14px;
   /* justify-content: center; */
   align-items: flex-start !important;
   @media screen and (max-width: 768px) {
@@ -254,7 +254,7 @@ input[type="date"] {
 input[type="month"], input[type="number"]{
     width: 20% !important;
     padding: 8px 50px;
-    /* margin-bottom: 10px; */
+    margin-bottom: 20px;
     border: 2px solid #BDBDBD;
   
    
@@ -285,12 +285,12 @@ input[type="radio"] {
 .checkbox-group{
     display: flex;
     flex-direction: row;
-  
+    
 }
 button[type="submit"] {
   background-color: #2D9CDB;
   color: white;
-  padding: 10px 40px;
+  padding: 10px 50px;
   margin-top: 10px;
   border: none;
   cursor: pointer;

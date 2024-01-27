@@ -54,35 +54,23 @@ const Form = () => {
 
       <label htmlFor="agency">Are you an agency individual?</label>
       <div className="checkbox-group">
-      <label htmlFor="agency">Agency</label>
+      
       <input
         type="radio"
         id="agency"
         checked={agency}
         onChange={(e) => setAgency(e.target.checked)}
       />
-      <label htmlFor="individual">individual</label>
+      <label htmlFor="agency">Agency</label>
       <input
         type="radio"
         id="agency"
         checked={individual}
         onChange={(e) => setIndividual(e.target.checked)}
       />
+       <label htmlFor="individual">individual</label>
       </div>
-      {/* <label htmlFor="agency">Agency</label>
-      <input
-        type="checkbox"
-        id="agency"
-        checked={agency}
-        onChange={(e) => setAgency(e.target.checked)}
-      />
-      <label htmlFor="individual">individual</label>
-      <input
-        type="checkbox"
-        id="agency"
-        checked={agency}
-        onChange={(e) => setAgency(e.target.checked)}
-      /> */}
+    
 
       <button type="submit">Submit</button>
     
