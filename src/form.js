@@ -6,6 +6,8 @@ const Form = () => {
   const [password, setPassword] = useState("");
   const [agency, setAgency] = useState(false);
   const [individual, setIndividual] = useState(false);
+  const [UserErr, setUserError] = useState(false);
+  const [showError, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,6 +15,7 @@ const Form = () => {
   };
 
   return (
+   
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">Create an account</label>
       <input
@@ -21,6 +24,7 @@ const Form = () => {
         value={username}
         onChange={(e) => setUsername(e.target.value)} required
       />
+        {UserErr ? <span>Please fill valid Username</span> : ""}
 
       <label htmlFor="password">Choose a password</label>
       <input
@@ -29,17 +33,20 @@ const Form = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)} required
       />
+       {UserErr ? <span>Please fill valid Username</span> : ""}
+
       <label htmlFor="dob">Date of birth (Optional)</label>
       <div className="dob-group">
         <div className="date">
         <label htmlFor="month">Date</label>
         <input type="date" id="dob" name="dob" />
+        {UserErr ? <span>Please fill valid date</span> : ""}
         </div>
-        <div className="date">
+        <div className="month">
         <label htmlFor="month">Month</label>
         <input type="month" id="month" name="month" />
         </div>
-        <div className="date">
+        <div className="year">
         <label htmlFor="year">Year</label>
         <input type="number" id="year" name="year" min="1900" max="2022" />
         </div>
@@ -49,14 +56,14 @@ const Form = () => {
       <div className="checkbox-group">
       <label htmlFor="agency">Agency</label>
       <input
-        type="checkbox"
+        type="radio"
         id="agency"
         checked={agency}
         onChange={(e) => setAgency(e.target.checked)}
       />
       <label htmlFor="individual">individual</label>
       <input
-        type="checkbox"
+        type="radio"
         id="agency"
         checked={individual}
         onChange={(e) => setIndividual(e.target.checked)}
@@ -78,8 +85,11 @@ const Form = () => {
       /> */}
 
       <button type="submit">Submit</button>
+    
     </form>
+    
   );
+    
 };
 
 export default Form;

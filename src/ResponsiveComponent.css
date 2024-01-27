@@ -28,7 +28,7 @@ body {
 }
 .container-white{
   position: absolute;
- 
+  background-color: #fff;
   display: flex;
   flex-direction: row;
   @media screen and (max-width: 768px) {
@@ -42,7 +42,7 @@ body {
 .container {
   flex-wrap: wrap;
    margin: 0 auto;
-   
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,6 +79,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     order: 1;
   }
   
@@ -171,6 +172,7 @@ body {
   font-size: 24px;
   font-family: Roboto;
   line-height: 28.13px;
+  margin-left: 10px;
   /* justify-content: center; */
   align-items: flex-start !important;
   @media screen and (max-width: 768px) {
@@ -228,37 +230,62 @@ input[type="password"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
+  border: 2px solid #BDBDBD;
 }
 
 .dob-group{
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
+    /* max-width: 100%; */
+    /* margin-left: -50px; */
 }
 input[type="date"] {
-    width: 8%;
-    padding: 10px;
-    margin-bottom: 20px;
+    width: 8% !important;
+    padding: 8px 20px;
+    margin-bottom: 10px;
+    border: 2px solid #BDBDBD;
+    margin-right: -80px;
+    @media screen and (max-width: 768px) {
+      margin-right: -90px;
+    }
 
 }
 input[type="month"], input[type="number"]{
-    width: 20%;
-    padding: 10px;
-    margin-bottom: 20px;
+    width: 20% !important;
+    padding: 8px 50px;
+    /* margin-bottom: 10px; */
+    border: 2px solid #BDBDBD;
+  
+   
 }
 
-/* .date{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
-} */
-input[type="checkbox"] {
+.year{
+  margin-left: -90px;
+  @media screen and (max-width: 768px) {
+    margin-left: -120px;
+  }
+}
+
+.date, .month, .year{
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: flex-start; */
+  align-items: flex-start;
+  color: #BDBDBD;
+  
+}
+input[type="radio"] {
   margin-right: 10px;
+  border-radius: 50px;
+  border: 2px solid #BDBDBD;
+  margin-top: -10px;
 }
 
 .checkbox-group{
     display: flex;
     flex-direction: row;
+  
 }
 button[type="submit"] {
   background-color: #2D9CDB;
