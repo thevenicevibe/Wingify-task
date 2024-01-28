@@ -24,6 +24,8 @@ body {
     justify-content: flex-end;
     align-items: center;
     max-width: 100%;
+    
+
   }
 }
 .container-white{
@@ -37,6 +39,7 @@ body {
     display: flex;
     align-items: center;
     max-width: 100%;
+    top: 0;
   }
 }
 .container {
@@ -147,7 +150,7 @@ body {
     flex-direction: column;
     align-items: left;
     /* justify-content: center; */
-    background-color: #ddd;
+    background-color: #FFFFFF;
     order: 2;
   }
 
@@ -161,6 +164,16 @@ body {
     height: 60px;
     background-color: #B8ACDA; 
      clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+     @media screen and (max-width: 768px) {
+      content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px; 
+    height: 60px;
+    /* background-color: #B8ACDA; */
+      background-color: #FFFFFF;
+     }
   }
 
 .right-section h1 {
@@ -211,9 +224,9 @@ form {
     margin-left: 250px;
     display: flex;
     flex-direction: column;
-   
+    background-color: #FFFFFF;
     /* justify-content: center; */
-    background-color: #ddd;
+  
     align-items: flex-start;
     /* max-width: 100%; */
     }
@@ -241,7 +254,7 @@ input[type="password"] {
   }
 }
 
-input:hover {
+input:active {
   border-color: red;
 }
 
